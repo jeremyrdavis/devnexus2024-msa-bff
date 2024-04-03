@@ -33,6 +33,6 @@ public class SpiritCharacterResourceTest {
                 .when().get("/characters/assign/Buddy")
                 .then()
                 .statusCode(200)
-                .body("character", is(TestUtils.LUKE_SKYWALKER));
+                .body("characterName", is(TestUtils.LUKE_SKYWALKER));
     }
 }
