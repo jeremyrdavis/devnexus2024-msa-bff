@@ -1,6 +1,7 @@
 package io.arrogantprogrammer.devnexus2024.bff.infrastructure;
 
 import io.arrogantprogrammer.devnexus2024.bff.domain.CharacterAssignment;
+import io.arrogantprogrammer.devnexus2024.bff.domain.PoemRequest;
 import jakarta.annotation.Resource;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.POST;
@@ -19,6 +20,15 @@ public class DevnexusResource {
     DevnexusService devnexusService;
 
     @POST
+    @Path("/assign")
+    public Response getRandomCharacter(final String name) {
+        LOGGER.info("Getting random character");
+        CharacterAssignment characterAssignment = devnexusService.assignCharacter(name);
+        return Response.ok().entity(characterAssignment).build();
+    }
+
+
+    @POST
     @Path("/whois")
     public Response whois(CharacterAssignment characterAssignment) {
         LOGGER.info("Getting whois information");
@@ -26,4 +36,21 @@ public class DevnexusResource {
         LOGGER.debug("Returning whois information for {}", updatedCharacterAssignment.characterName());
         return Response.ok().entity(updatedCharacterAssignment).build();
     }
+
+    @POST
+    @Path("/poem")
+    public Response poem(CharacterAssignment characterAssignment) {
+        CharacterAssignment characterAssignmentWithPoem = devnexusService.poem(characterAssignment);
+        LOGGER.debug("Returning poem information for {}", characterAssignmentWithPoem);
+        return Response.ok().entity(characterAssignmentWithPoem).build();
+    }
+
+    @POST
+    @Path("/addtopoem")
+    public Response addToPoem(CharacterAssignment characterAssignment) {
+        CharacterAssignment characterAssignmentWithUpdatedPoem = devnexusService.addToPoem(characterAssignment);
+        LOGGER.debug("Returning poem information for {}", characterAssignmentWithUpdatedPoem);
+        return Response.ok().entity(characterAssignmentWithUpdatedPoem).build();
+    }
+
 }

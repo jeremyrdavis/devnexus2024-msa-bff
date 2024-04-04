@@ -13,14 +13,14 @@ import org.slf4j.LoggerFactory;
 import static org.mockito.Mockito.when;
 
 @QuarkusTest
-public class CharacterServiceTest {
-    static final Logger LOGGER = LoggerFactory.getLogger(CharacterServiceTest.class);
+public class DevnexusServiceTest {
+    static final Logger LOGGER = LoggerFactory.getLogger(DevnexusServiceTest.class);
     @InjectMock
     @RestClient
     SwapiClient mockSwapiClient;
 
     @Inject
-    CharacterService characterService;
+    DevnexusService devnexusService;
 
     @BeforeEach
     public void setup() {
@@ -31,7 +31,7 @@ public class CharacterServiceTest {
     @Test
     public void testRandomCharacter() {
         LOGGER.info("Testing random character");
-        CharacterAssignment characterAssignment = characterService.assignCharacter("Buddy");
+        CharacterAssignment characterAssignment = devnexusService.assignCharacter("Buddy");
         assert characterAssignment.characterName().equals(TestUtils.LUKE_SKYWALKER);
         assert characterAssignment.name().equals("Buddy");
     }
