@@ -1,5 +1,6 @@
 package io.arrogantprogrammer.devnexus2024.bff.infrastructure;
 
+import io.arrogantprogrammer.devnexus2024.bff.domain.CharacterRecord;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
@@ -11,5 +12,5 @@ public interface SwapiClient {
 
     @GET
     @Path("/swapi/person")
-    String getRandomCharacter();
+    CharacterRecord getRandomCharacter();
 }

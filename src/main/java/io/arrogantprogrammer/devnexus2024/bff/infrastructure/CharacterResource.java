@@ -3,6 +3,7 @@ package io.arrogantprogrammer.devnexus2024.bff.infrastructure;
 import io.arrogantprogrammer.devnexus2024.bff.domain.CharacterAssignment;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.GET;
+import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.core.Response;
@@ -16,9 +17,9 @@ public class CharacterResource {
     @Inject
     CharacterService characterService;
 
-    @GET
-    @Path("/assign/{name}")
-    public Response getRandomCharacter(@PathParam("name") final String name) {
+    @POST
+    @Path("/assign")
+    public Response getRandomCharacter(final String name) {
         LOGGER.info("Getting random character");
         CharacterAssignment characterAssignment = characterService.assignCharacter(name);
         return Response.ok().entity(characterAssignment).build();

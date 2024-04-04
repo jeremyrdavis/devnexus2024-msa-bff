@@ -25,7 +25,7 @@ public class CharacterServiceTest {
     @BeforeEach
     public void setup() {
         LOGGER.info("Setting up tests");
-        when(mockSwapiClient.getRandomCharacter()).thenReturn(TestUtils.LUKE_SKYWALKER);
+        when(mockSwapiClient.getRandomCharacter()).thenReturn(TestUtils.LUKE_SKYWALKER_RECORD);
     }
 
     @Test

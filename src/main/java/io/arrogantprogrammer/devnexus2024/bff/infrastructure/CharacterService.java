@@ -1,6 +1,7 @@
 package io.arrogantprogrammer.devnexus2024.bff.infrastructure;
 
 import io.arrogantprogrammer.devnexus2024.bff.domain.CharacterAssignment;
+import io.arrogantprogrammer.devnexus2024.bff.domain.CharacterRecord;
 import jakarta.enterprise.context.ApplicationScoped;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 import org.slf4j.Logger;
@@ -15,9 +16,9 @@ public class CharacterService {
     SwapiClient swapiClient;
 
     public CharacterAssignment assignCharacter(final String name) {
-        String characterName = swapiClient.getRandomCharacter();
-        CharacterAssignment characterAssignment = new CharacterAssignment(name, characterName);
-        LOGGER.debug("Assigned {} to {}", characterName, name);
+        CharacterRecord characterRecord = swapiClient.getRandomCharacter();
+        CharacterAssignment characterAssignment = new CharacterAssignment(name, characterRecord.name());
+        LOGGER.debug("Assigned {} to {}", characterRecord, name);
         return characterAssignment;
     }
 }

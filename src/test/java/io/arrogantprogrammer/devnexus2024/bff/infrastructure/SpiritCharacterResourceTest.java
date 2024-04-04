@@ -30,7 +30,8 @@ public class SpiritCharacterResourceTest {
     @Test
     public void testGetRandomCharacter() {
         given()
-                .when().get("/characters/assign/Buddy")
+                .with().body("Buddy")
+                .when().post("/characters/assign")
                 .then()
                 .statusCode(200)
                 .body("characterName", is(TestUtils.LUKE_SKYWALKER));
