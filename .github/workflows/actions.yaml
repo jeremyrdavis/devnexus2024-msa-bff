@@ -44,5 +44,5 @@ jobs:
       - name: Push Docker image
         run: |
           echo ${{ secrets.DOCKERHUB_TOKEN }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
-          docker tag devnexus2024-msa-bff ${{ secrets.DOCKERHUB_USERNAME }}/devnexus2024-msa-bff::${POM_VERSION}
-          docker push ${{ secrets.DOCKERHUB_USERNAME }}/devnexus2024-msa-bff::${POM_VERSION}
+          docker tag devnexus2024-msa-bff ${{ secrets.DOCKERHUB_USERNAME }}/devnexus2024-msa-bff:${POM_VERSION}
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/devnexus2024-msa-bff:${POM_VERSION}
