@@ -39,7 +39,7 @@ jobs:
         uses: docker/setup-buildx-action@v1
 
       - name: Build Docker image
-        run: docker build --file src/main/docker/Dockerfile.jvm -t devnexus2024-msa-bff:${POM_VERSION} .
+        run: docker build --file src/main/docker/Dockerfile.jvm -t devnexus2024-msa-bff .
 
       - name: Push Docker image
         run: |
