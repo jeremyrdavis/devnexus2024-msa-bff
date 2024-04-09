@@ -64,7 +64,7 @@ spec:
                 secretKeyRef:
                   key: SWAPI_URL
                   name: devnexus2024-msa-secrets
-          image: docker.io/jeremydavis/devnexus2024-msa-bff
+          image: docker.io/jeremydavis/devnexus2024-msa-bff:1.4
           imagePullPolicy: Always
           name: devnexus2024-msa-bff
           ports:
