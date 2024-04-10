@@ -64,7 +64,7 @@ spec:
                 secretKeyRef:
                   key: SWAPI_URL
                   name: devnexus2024-msa-secrets
-          image: docker.io/jeremydavis/devnexus2024-msa-bff:1.4
+          image: docker.io/jeremydavis/devnexus2024-msa-bff:1.6
           imagePullPolicy: Always
           name: devnexus2024-msa-bff
           ports:
@@ -85,7 +85,7 @@ metadata:
   name: devnexus2024-msa-bff
 spec:
   rules:
-    - host: devnexus2024-ingress.apps.cluster-8tttc.sandbox2514.opentlc.com
+    - host: devnexus2024-ingress.apps.cluster-j88hn.sandbox2300.opentlc.com
       http:
         paths:
           - backend:
